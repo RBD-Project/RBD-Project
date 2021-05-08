@@ -1,0 +1,29 @@
+<%- include('./includes/head.ejs') %>
+    <title>Document</title> 
+</head>
+
+<body>
+    <div class="principal">
+        <br>
+        <h1>Login</h1>
+        <%- include('includes/messages') %>
+        <form action="/auth" method="POST">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+            <div>
+              <input type="email" placeholder="Enter email" name="email" required>
+            </div>
+
+            <div>
+                <input type="password" placeholder="Type password" name="password" required>
+            </div>
+
+            <br>
+            <p>Crie sua conta <a href="/create">aqui!</a></p>
+            <button type="submit">Submit</button>
+            <br>
+            <p><a class="recoverPassword" href="/recover-index">Recuperar Senha</a></p>
+
+          </form>
+    </div>
+
+<%- include('./includes/footer.ejs') %>

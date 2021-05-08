@@ -1,0 +1,21 @@
+<%- include('./includes/head.ejs') %>  
+    <title>Document</title> 
+</head>
+
+<body>
+    <div class="principal">
+        <br>
+        <h1>Password Recover</h1>
+        <%- include('includes/messages') %>
+        <p>Enviamos um codigo para seu Email</p>
+        <form action="/recover-index-code/recover-code" method="POST">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+            <div>
+                <input type="number" placeholder="Enter your code" name="userCode" required>
+            </div>
+            <br>
+            <button type="submit">Enviar codigo</button>
+            </form>
+    </div>
+
+<%- include('./includes/footer.ejs') %>

@@ -1,0 +1,28 @@
+<%- include('./includes/head.ejs') %>
+    <title>Document</title>  
+</head>
+
+<body>
+    <div class="principal">
+        <br>
+        <h1>Cadastro</h1>
+        <%- include('includes/messages') %>
+        <form action="/create/register" method="POST">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+            <div class="form-group">
+              <input type="email" placeholder="Enter email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <input type="password" placeholder="Type password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <input type="password" placeholder="Confirm your password" name="password2" required>
+            </div>
+              <br>
+            <button type="submit">Create</button>
+          </form>
+    </div>
+
+<%- include('./includes/footer.ejs') %>
