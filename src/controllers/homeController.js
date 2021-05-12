@@ -17,7 +17,6 @@ exports.auth = async (req, res) => {
     try {
         const login = new Login(req.body)
         await login.auth()
-        req.session.user = login.user
 
         if(login.errors.length > 0){
             req.flash('errors', login.errors)
@@ -25,6 +24,7 @@ exports.auth = async (req, res) => {
                 return res.redirect('back')
             })
         } else {
+            req.session.user = login.user
             return res.redirect('/')
         }
 

@@ -24,7 +24,7 @@ User.init({
 })
 
 exports.Login = class Login{
-    constructor(body, session){
+    constructor(body, session=null){
         this.body = body
         this.user = null
         this.errors = []
@@ -90,7 +90,6 @@ exports.Login = class Login{
     async auth() {
         try {
             await sequelize.authenticate()  //Testando conexao
-            if(this.errors.length > 0) return
             
             this.user = await User.findOne({ where: { email: this.body.email } })
             
@@ -118,7 +117,7 @@ exports.Login = class Login{
         try {
             await sequelize.authenticate()  //Testando conexao
             const emailExists = await User.findOne({ where: { email: this.body.email } })
-            this.session.emailExists = emailExists
+            this.session.email = this.body.email
     
             if(!emailExists){
                 this.errors.push('Email não encontrado!')
@@ -167,15 +166,15 @@ exports.Login = class Login{
         this.body.newPassword = bcryptjs.hashSync(this.body.newPassword, salt)
 
         try {
-            await sequelize.authenticate()  //Testando conexao
-            const newUser = this.session.emailExists
-            newUser.password = this.body.newPassword
-            await newUser.save({ fields: ['password'] })
+            const mail = this.session.email
+            const result = await User.update(
+                { password: this.body.newPassword },
+                { where: { email: mail } }
+              )
         } catch (e) {
             console.error('Conexao falha!', e)
         }
         return
-        //TODO:Autualizar tabela
     }
 
     getCleanneData(){
