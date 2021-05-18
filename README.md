@@ -1,18 +1,18 @@
 # RBD-Project
 
 <p align="center">🚀 Sistema de Login</p>
-<h4 align="center"> 
-	🚧 Em construção...  🚧
+<h4 align="center">
+	🚧 Building...  🚧
 </h4>
 
 <p>
- <a href="technologies">Technologies</a> |
+ <a href="technologies">Technology</a> |
  <a href="Features">Features</a> |
  <a href="start">Start</a>
 </p>
 <br>
 
-## 🛠 Technologies
+## 🛠 Technology
 - [Node.js](https://nodejs.org/en/)
 - [Express.js](https://expressjs.com/pt-br/)
 - [Nodemailer](http://nodemailer.com/)
@@ -21,19 +21,19 @@
 ## Features
 - [x] Create User
 - [x] Login User
-- [ ] Recover Password
+- [x] Recover Password
 
 <br>
 
-## Prerequisites and Starting
+## Prerequisites and Get Started
   -Before we get started you must have [Node.js](https://nodejs.org/en/) installed
-  
+
   #### Now you are ready, let's get started
-  
+
   - 1 Dowload the project
-  - 2 Open the project paste
+  - 2 Open the project file
   - 3 In the project terminal type:
-  
+
   ```bash
   npm init -y
   npm install
@@ -42,7 +42,7 @@
 
   ```bash
   npm run dev
-  ``` 
+  ```
   - 5 for run the server and application type:
 
   ```bash
